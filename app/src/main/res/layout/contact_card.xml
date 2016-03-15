@@ -1,0 +1,65 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contact_cards"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--xmlns:android="http://schemas.android.com/apk/res/android" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">-->
+<!--
+</LinearLayout>-->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_title"
+        android:text=""
+        android:background="#45744b"
+        android:textColor="#fbf8f8" />
+
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="20dp"
+        android:layout_below="@id/textView_title"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/textView_MobileNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MobileNo"
+        android:textSize="20dp"
+        android:layout_below="@id/textView_name"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/textView_fill_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_below="@id/textView_title"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/textView_fill_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_below="@id/textView_fill_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>
+    </android.support.v7.widget.CardView>

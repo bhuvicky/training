@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.healthsignz.training.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="LinkedList"
+        android:id="@+id/textView_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView_Result"
+        android:layout_below="@+id/textView_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_data"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_Result"
+        android:layout_marginTop="20dp"
+        android:hint="Enter data"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_position"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView_Result"
+        android:layout_marginTop="20dp"
+        android:hint="Enter position"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add at first"
+        android:id="@+id/button_add_at_first"
+        android:layout_below="@+id/editText_data"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:onClick="addAtFirst"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add at last"
+        android:id="@+id/button_add_at_last"
+        android:layout_below="@+id/button_add_at_first"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:onClick="addAtLast"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add at position"
+        android:id="@+id/button_add_at_position"
+        android:layout_below="@+id/button_add_at_last"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:onClick="addAtPosition"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="remove at first"
+        android:id="@+id/button_remove_at_first"
+        android:layout_below="@+id/editText_data"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:onClick="removeAtFirst"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="remove at last"
+        android:id="@+id/button_remove_at_last"
+        android:layout_below="@+id/button_remove_at_first"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:onClick="removeAtLast"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="remove at position"
+        android:id="@+id/button_remove_at_position"
+        android:layout_below="@+id/button_remove_at_last"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:onClick="removeAtPosition"/>
+</RelativeLayout>
