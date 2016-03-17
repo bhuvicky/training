@@ -31,7 +31,7 @@ public class RecyclerViewDemoActivity extends AppCompatActivity {
         mButtonAddRow = (Button) findViewById(R.id.button_add_row);
         RecyclerView.LayoutManager appearence = new LinearLayoutManager(this);
         colorList.setLayoutManager(appearence);
-         dataSet = new ArrayList();
+        dataSet = new ArrayList();
         mButtonAddRow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
