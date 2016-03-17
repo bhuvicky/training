@@ -52,4 +52,5 @@
         android:id="@+id/editText_city"
         android:layout_centerHorizontal="true" />
     </android.support.design.widget.TextInputLayout>
+
 </RelativeLayout>
