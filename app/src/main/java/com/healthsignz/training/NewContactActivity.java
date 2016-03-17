@@ -20,6 +20,5 @@ public class NewContactActivity extends AppCompatActivity {
         mEditTextName     = (EditText) findViewById(R.id.editText_name);
         mEditTextMobileNo = (EditText) findViewById(R.id.editText_phone);
         mEditTextCity     = (EditText) findViewById(R.id.editText_city);
-
     }
 }
