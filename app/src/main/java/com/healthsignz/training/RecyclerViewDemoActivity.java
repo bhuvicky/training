@@ -56,4 +56,5 @@ public class RecyclerViewDemoActivity extends AppCompatActivity {
          }
     }
 
+
 }
