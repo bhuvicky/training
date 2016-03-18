@@ -4,7 +4,10 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/contact_cards"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardElevation="5dp">
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -12,20 +15,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_title"
+        android:layout_height="30dp"
+        android:id="@+id/textView_fill_name"
         android:text=""
+        android:textSize="20dp"
         android:background="#45744b"
         android:textColor="#fbf8f8" />
-
-    <TextView
-        android:id="@+id/textView_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textSize="20dp"
-        android:layout_below="@id/textView_title"
-        android:layout_marginTop="20dp" />
 
     <TextView
         android:id="@+id/textView_MobileNo"
@@ -33,25 +28,18 @@
         android:layout_height="wrap_content"
         android:text="MobileNo"
         android:textSize="20dp"
-        android:layout_below="@id/textView_name"
+        android:layout_below="@id/textView_fill_name"
         android:layout_marginTop="20dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_city"
-        android:hint="City"
-        android:layout_below="@+id/textView_MobileNo"/>
 
     <TextView
-        android:id="@+id/textView_fill_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:id="@+id/textView_city"
+        android:hint="City"
         android:textSize="20dp"
-        android:layout_below="@id/textView_title"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textView_MobileNo"/>
+
 
     <TextView
         android:id="@+id/textView_fill_number"
@@ -60,6 +48,16 @@
         android:text=""
         android:textSize="20dp"
         android:layout_below="@id/textView_fill_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/textView_fill_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_below="@id/textView_fill_number"
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp" />
 

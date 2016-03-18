@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:training="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/menu_new_contact"
+        android:title="New Contact">
+    </item>
+    <item
+        android:id="@+id/menu_total_contact"
+        android:title="Total Contact">
+    </item>
+    <item
+        android:id="@+id/menu_edit"
+        android:title="Edit Contact">
+    </item>
+</menu>

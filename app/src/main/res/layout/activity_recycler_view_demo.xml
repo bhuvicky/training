@@ -5,19 +5,19 @@
     tools:context="com.healthsignz.training.RecyclerViewDemoActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button_add_row"
-        android:text="add row"/>
+        android:id="@+id/textView_item_count"
+        android:hint="Count"
+        android:textSize="30dp"
+        android:layout_alignParentRight="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/color_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_add_row"
+        android:layout_below="@+id/button_item_count"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp">
