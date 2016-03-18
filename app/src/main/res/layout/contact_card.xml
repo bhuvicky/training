@@ -10,6 +10,8 @@
     card_view:cardElevation="5dp">
 
 <RelativeLayout
+    android:background="#7011e8e8"
+    android:padding="@dimen/activity_horizontal_margin"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,8 +21,15 @@
         android:id="@+id/textView_fill_name"
         android:text=""
         android:textSize="20dp"
-        android:background="#45744b"
-        android:textColor="#fbf8f8" />
+        android:background="#5045744b"
+        android:textColor="#fbf8f8"/>
+
+    <ImageButton
+        android:id="@+id/button_editView"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/ic_edit"
+        android:layout_width="35dp"
+        android:layout_height="30dp" />
 
     <TextView
         android:id="@+id/textView_MobileNo"
