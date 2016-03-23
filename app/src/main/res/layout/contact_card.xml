@@ -10,8 +10,9 @@
     card_view:cardElevation="5dp">
 
 <RelativeLayout
-    android:background="#7011e8e8"
     android:padding="@dimen/activity_horizontal_margin"
+    android:background="#56ff85"
+    android:id="@+id/rLayout_cardView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
