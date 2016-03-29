@@ -4,9 +4,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,7 +22,7 @@ import java.util.List;
     public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
         List<RecyclerViewDemoActivity.ContactInfo> dataSet;
-        int colorChangedPosition=-2;
+        int colorChangedPosition=-4;
         View itemView;
 
         ContactAdapter(List dataSet) {
@@ -39,7 +41,7 @@ import java.util.List;
             holder.textViewTitle.setText(dataSet.get(position).name);
             holder.textViewName.setText(dataSet.get(position).mobileNo);
             holder.textViewMobileNo.setText(dataSet.get(position).city);
-
+            Log.i("logcheck", "inside on bind");
 
             if (colorChangedPosition == position)
                 holder.relativeLayout.setBackgroundColor(Color.BLUE);
@@ -54,6 +56,7 @@ import java.util.List;
 
         class ContactViewHolder extends RecyclerView.ViewHolder {
             TextView textViewTitle, textViewName, textViewMobileNo;
+            EditText editTextCountry;
             ImageButton mImageButtonEdit;
             RelativeLayout relativeLayout ;
             public ContactViewHolder(final View itemView) {
@@ -62,19 +65,22 @@ import java.util.List;
                 textViewTitle = (TextView) itemView.findViewById(R.id.textView_fill_name);
                 textViewName = (TextView) itemView.findViewById(R.id.textView_fill_number);
                 textViewMobileNo = (TextView) itemView.findViewById(R.id.textView_fill_city);
+                editTextCountry = (EditText) itemView.findViewById(R.id.editText_country);
                 mImageButtonEdit = (ImageButton) itemView.findViewById(R.id.button_editView);
 
                 relativeLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(colorChangedPosition == getAdapterPosition())  {
+                        Log.i("logcheck", "inside on click listener");
+                        if (colorChangedPosition == getAdapterPosition()) {
                             colorChangedPosition = -4;
                             notifyDataSetChanged();
-                        }else {
+                        } else {
                             colorChangedPosition = getAdapterPosition();
-                                notifyDataSetChanged();
+                            notifyDataSetChanged();
                         }
-                    }});
+                    }
+                });
             }
         }
     }

@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText_name"
         android:hint="Name"
+        android:onClick="hideKeyboard"
         android:textColor="#f4faf4"
         android:layout_toLeftOf="@+id/imageButton_add_contact"
         android:layout_toStartOf="@+id/imageButton_add_contact" />
