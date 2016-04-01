@@ -21,24 +21,22 @@ public class ListViewDemoActivity extends AppCompatActivity {
         listViewUserDetails = (ListView) findViewById(R.id.listView_user_details);
         buttonSubmit = (Button) findViewById(R.id.button_submit);
         labelNames = getResources().getStringArray(R.array.label_names);
-        listViewUserDetails.setAdapter(new UserDetailAdapter(this, labelNames));
+        listViewUserDetails.setAdapter(new UserDetailAdapter(this, labelNames, listViewUserDetails));
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String[] enteredDetails = new UserDetailAdapter().getData();
+                /*String[] enteredDetails = new UserDetailAdapter().getData();
                 for(String data: enteredDetails)
-                    Log.d("list", ""+data);
-                /*if (isValid()) {
+                    Log.d("list", ""+data);*/
+                if (isValid()) {
                     Log.d("listempty", "valid");
                 }
                 else
-                    Log.d("listEmpty", "invalid");*/
+                    Log.d("listEmpty", "invalid");
             }
         });
     }
-
-
 
     public boolean isValid() {
         return new UserDetailAdapter().isEmpty();
