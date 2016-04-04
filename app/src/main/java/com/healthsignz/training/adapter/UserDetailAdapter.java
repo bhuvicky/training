@@ -7,13 +7,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.healthsignz.training.R;
 
@@ -25,16 +24,21 @@ import java.util.List;
  */
 public class UserDetailAdapter extends BaseAdapter {
     String[] labelNames, temp;
-    boolean[] validationStatus;
     Context context;
     ListView myList;
+    public static ArrayList<String> validation;
     public UserDetailAdapter() {}
 
     public UserDetailAdapter(Context context, String[] labelNames, ListView myList) {
         this.context = context;
         this.labelNames = labelNames;
        temp = new String[labelNames.length];
-        validationStatus = new boolean[labelNames.length];
+        validation = new ArrayList<>();
+
+        for (int i=0;i<16;i++){
+            validation.add("");
+        }
+
         this.myList = myList;
     }
 
@@ -60,6 +64,7 @@ public class UserDetailAdapter extends BaseAdapter {
         final MyViewHolder holder;
 
         if(row == null) {
+            Log.d("listview", "position = "+position);
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             holder = new MyViewHolder();
             holder.myPosition = position;
@@ -86,16 +91,11 @@ public class UserDetailAdapter extends BaseAdapter {
                     @Override
                     public void afterTextChanged(Editable s) {
                         temp[holder.myPosition] = s.toString();
-                        Log.d("listview", "array size = " + validationStatus.length);
-                        Log.d("listview", "position =  = " + holder.myPosition);
-                        /*if (s.toString().length() > 0)
-                            validationStatus[holder.myPosition] = true;
-                        else
-                            validationStatus[holder.myPosition] = false;*/
+                            validation.remove(holder.myPosition/2);
+                            validation.add(holder.myPosition/2, s.toString());
+                        Log.v("records",validation.toString());
                     }
                 });
-
-                Log.d("listview", "stored value = "+ temp[holder.myPosition]);
             }
             else if(whichType == 1) {
                 row = inflater.inflate(R.layout.row_spinner, parent, false);
@@ -104,10 +104,11 @@ public class UserDetailAdapter extends BaseAdapter {
             }
         }
         else {
+            Log.d("listview", "position = "+position);
             holder = (MyViewHolder) row.getTag();
             holder.myPosition = position;
             if (row instanceof RelativeLayout) {
-                holder.editTextEnterDetail.setText(temp[holder.myPosition]);
+                holder.editTextEnterDetail.setText(temp[position]);
                 holder.editTextEnterDetail.setHint(labelNames[position]);
             }
         }
@@ -123,26 +124,6 @@ public class UserDetailAdapter extends BaseAdapter {
     public int getViewTypeCount() {
         return 2;
     }
-
-    public boolean isEmpty() {
-        int i;
-        View v;
-        EditText et;
-        List<String> storeValue = new ArrayList<>();
-
-        for (i = 0; i < myList.getCount(); i+=2) {
-            et = (EditText) myList.getChildAt(i).findViewById(R.id.editText_enter_detail);
-            if(et != null) {
-                storeValue.add(String.valueOf(et.getText()));
-                Log.d("listview", String.valueOf(et.getText()));
-            }
-        }
-        return true;
-    }
-
-    /*public String[] getData() {
-        return temp;
-    }*/
 
     public static class MyViewHolder {
         EditText editTextEnterDetail;

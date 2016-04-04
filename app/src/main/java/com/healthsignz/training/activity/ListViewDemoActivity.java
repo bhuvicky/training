@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.healthsignz.training.R;
 import com.healthsignz.training.adapter.UserDetailAdapter;
@@ -25,20 +26,9 @@ public class ListViewDemoActivity extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                /*String[] enteredDetails = new UserDetailAdapter().getData();
-                for(String data: enteredDetails)
-                    Log.d("list", ""+data);*/
-                if (isValid()) {
-                    Log.d("listempty", "valid");
-                }
-                else
-                    Log.d("listEmpty", "invalid");
+                for(String s: UserDetailAdapter.validation)
+                    Toast.makeText(getBaseContext(), s, Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    public boolean isValid() {
-        return new UserDetailAdapter().isEmpty();
     }
 }
