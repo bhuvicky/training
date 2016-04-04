@@ -11,19 +11,23 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".RecyclerViewDemoActivity"></activity>
         <activity android:name=".SampleActivity" />
-        <activity android:name=".activity.SwipeTabDemoActivity"></activity>
-        <activity
-            android:name=".activity.ListViewDemoActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan">
-
-        </activity>
-        <activity android:name=".activity.ProgressBarDemoActivity"></activity>
-        <activity android:name=".activity.PieChartActivity">
+        <activity android:name=".activity.SwipeTabDemoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ListViewDemoActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+
+        </activity>
+        <activity android:name=".activity.ProgressBarDemoActivity">
+
+        </activity>
+        <activity android:name=".activity.PieChartActivity">
+
         </activity>
     </application>
 

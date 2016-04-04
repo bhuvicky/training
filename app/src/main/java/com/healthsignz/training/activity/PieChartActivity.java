@@ -10,7 +10,7 @@ import com.healthsignz.training.widget.PieChart;
 public class PieChartActivity extends AppCompatActivity {
 
     LinearLayout lv1;
-    float values[] = { 90, 90, 90, 90 };
+    float values[] = { 120, 180, 500, 321, 123 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,4 +34,6 @@ public class PieChartActivity extends AppCompatActivity {
         }
         return data;
     }
+
+
 }

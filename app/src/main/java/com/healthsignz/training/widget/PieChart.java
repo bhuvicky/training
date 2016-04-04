@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 
 import java.util.Random;
@@ -17,11 +18,13 @@ public class PieChart extends View {
 
     private Paint paint = new Paint();
     private float[] value_degree;
-    RectF rectf = new RectF(120, 120, 380, 380);
+
     float temp = 0;
+    Context mContext;
 
     public PieChart(Context context, float[] values) {
         super(context);
+        mContext = context;
 
         value_degree = new float[values.length];
         for (int i = 0; i < values.length; i++) {
@@ -29,10 +32,17 @@ public class PieChart extends View {
         }
     }
 
+    private float convertDpToPixel(float dp) {
+        DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
+        float px = dp * (metrics.densityDpi / 160f);
+        return px;
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Random r;
+        RectF rectf = new RectF(10, 180, 520, 520);
         for (int i = 0; i < value_degree.length; i++) {
             if (i == 0) {
                 r = new Random();

@@ -49,17 +49,17 @@ public class ProgressBarDemoActivity extends AppCompatActivity {
 
                         while (progressStatus < 100) {
                             progressStatus += 1;
-                            /*try {
+                            try {
                                 Thread.sleep(200);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
-                            }*/
-                            progressBar.setProgress(progressStatus - 10);
+                            }
 
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                    progress_count.setText(progressStatus+ "%");
+                                    progressBar.setProgress(progressStatus);
                                 }
                             });
 
@@ -67,8 +67,8 @@ public class ProgressBarDemoActivity extends AppCompatActivity {
                         /*handler.post(new Runnable() {
                             @Override
                             public void run() {
-                               // progressBar.setProgress(progressStatus);
-                                    *//*tv.setText(progressStatus+"");*//*
+                                progressBar.setProgress(progressStatus);
+                                //tv.setText(progressStatus+"");
                             }
                         });*/
                     }
