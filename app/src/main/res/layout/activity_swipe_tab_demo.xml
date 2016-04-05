@@ -4,20 +4,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.healthsignz.training.activity.SwipeTabDemoActivity">
+
+    <TextView
+        android:id="@+id/textView_minus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minus -       "
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textView_minus"
+        android:textSize="30dp"
+        android:text="hji"
+        android:id="@+id/textView_result"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_plus"
+        android:text="+ Plus"
+        android:layout_alignParentRight="true"
+        android:textSize="30dp"/>
 
     <android.support.design.widget.TabLayout
         app:tabGravity="fill"
         android:id="@+id/tabs"
+        android:layout_below="@+id/textView_minus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
+        android:layout_below="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
+
+
 </RelativeLayout>
