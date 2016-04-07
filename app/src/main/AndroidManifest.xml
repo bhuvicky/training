@@ -9,25 +9,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".RecyclerViewDemoActivity"></activity>
+        <activity android:name=".RecyclerViewDemoActivity" />
         <activity android:name=".SampleActivity" />
-        <activity android:name=".activity.SwipeTabDemoActivity">
+        <activity android:name=".activity.SwipeTabDemoActivity"></activity>
+        <activity
+            android:name=".activity.ListViewDemoActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".activity.ProgressBarDemoActivity" />
+        <activity android:name=".activity.PieChartActivity" />
+        <activity android:name=".activity.SampleActivity">
+
+        </activity>
+        <activity android:name=".activity.ExpandableListViewDemoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.ListViewDemoActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan">
-
-        </activity>
-        <activity android:name=".activity.ProgressBarDemoActivity">
-
-        </activity>
-        <activity android:name=".activity.PieChartActivity">
-
         </activity>
     </application>
 

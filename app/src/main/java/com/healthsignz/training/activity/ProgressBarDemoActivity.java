@@ -20,7 +20,8 @@ public class ProgressBarDemoActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     int progressStatus;
     private Handler handler;
-    TextView progress_count ;
+    TextView progress_count;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class ProgressBarDemoActivity extends AppCompatActivity {
         buttonSorting = (Button) findViewById(R.id.button_sorting);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_circle);
         handler = new Handler();
+
         progress_count =(TextView)findViewById(R.id.progress_count);
         progress_count.setText("0%");
         buttonSorting.setOnClickListener(new View.OnClickListener() {
@@ -58,8 +60,12 @@ public class ProgressBarDemoActivity extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                   progress_count.setText(progressStatus+ "%");
+                                    progress_count.setText(progressStatus + "%");
                                     progressBar.setProgress(progressStatus);
+                                    final ObjectAnimator animator = ObjectAnimator.ofInt(progressBar, "progress", 0, 360);
+                                    animator.setDuration(1000);
+                                    animator.setInterpolator(new DecelerateInterpolator());
+                                    animator.start();
                                 }
                             });
 

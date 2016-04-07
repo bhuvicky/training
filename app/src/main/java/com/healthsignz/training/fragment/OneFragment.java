@@ -1,6 +1,7 @@
 package com.healthsignz.training.fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.healthsignz.training.Communicator;
 import com.healthsignz.training.R;
 
 /**
@@ -17,10 +19,23 @@ import com.healthsignz.training.R;
 public class OneFragment extends ListFragment {
 
     String[] num = new String[5];
+    Communicator communicator;
+    static ListFragment instance;
+
     public OneFragment() {
         // Required empty public constructor
     }
 
+    public static ListFragment getInstance() {
+        return instance = new ListFragment();
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        communicator = (Communicator) getActivity();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,8 +54,17 @@ public class OneFragment extends ListFragment {
         for(int i = 0; i < 5; i++) {
             num[i] = countValue;
         }
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, num);
         setListAdapter(adapter);
+
     }
+
+    /*@Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if(isVisibleToUser) {
+
+        }
+    }*/
 }

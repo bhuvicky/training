@@ -3,6 +3,7 @@ package com.healthsignz.training.activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,10 +28,13 @@ public class SwipeTabDemoActivity extends AppCompatActivity implements Communica
     private ViewPager viewPager;
     private TextView mTextViewPlus, mTextViewMinus, mTextViewResult;
     private int count;
+    private ListFragment prevFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_swipe_tab_demo);
+        getActionBar().setTitle("swipe");
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setUpViewPager(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -44,8 +48,7 @@ public class SwipeTabDemoActivity extends AppCompatActivity implements Communica
             @Override
             public void onClick(View v) {
                 mTextViewResult.setText(String.valueOf(++count));
-                OneFragment prevFragment = (OneFragment) getSupportFragmentManager().findFragmentByTag("prev");
-                prevFragment.changeData(String.valueOf(count));
+                sendData(String.valueOf(count));
             }
         });
 
@@ -59,7 +62,8 @@ public class SwipeTabDemoActivity extends AppCompatActivity implements Communica
 
     public void setUpViewPager(ViewPager viewPager) {
         MyViewPagerAdapter adapter = new MyViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "Prev");
+        prevFragment = OneFragment.getInstance();
+        adapter.addFragment(prevFragment, "Prev");
         adapter.addFragment(new TwoFragment(), "Present");
         adapter.addFragment(new ThreeFragment(), "Next");
         viewPager.setAdapter(adapter);
@@ -84,6 +88,7 @@ public class SwipeTabDemoActivity extends AppCompatActivity implements Communica
 
     @Override
     public void sendData(String countValue) {
-
+        OneFragment prevFragment = (OneFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.viewPager+viewPager.getCurrentItem());
+        prevFragment.changeData(String.valueOf(count));
     }
 }

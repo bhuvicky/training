@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFE1F694"
-    tools:context=".fragment.OneFragment">
+    tools:context=".fragment.OneFragment"
+    android:id="@+id/prevFragment">
 
     <ListView
         android:id="@android:id/list"
