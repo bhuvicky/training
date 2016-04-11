@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import com.healthsignz.training.Communicator;
 import com.healthsignz.training.R;
 
 /**
@@ -18,8 +17,12 @@ import com.healthsignz.training.R;
  */
 public class OneFragment extends ListFragment {
 
+    public interface TransferOneToTwo {
+        void sendOneToTwo(String data);
+    }
+
     String[] num = new String[5];
-    Communicator communicator;
+    //Communicator communicator;
     static ListFragment instance;
 
     public OneFragment() {
@@ -34,7 +37,7 @@ public class OneFragment extends ListFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        communicator = (Communicator) getActivity();
+       // communicator = (Communicator) getActivity();
     }
 
     @Override
@@ -44,11 +47,6 @@ public class OneFragment extends ListFragment {
         return inflater.inflate(R.layout.fragment_one, container, false);
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-    }
 
     public void changeData(String countValue) {
         for(int i = 0; i < 5; i++) {
@@ -56,15 +54,5 @@ public class OneFragment extends ListFragment {
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_expandable_list_item_1, num);
         setListAdapter(adapter);
-
     }
-
-    /*@Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-
-        if(isVisibleToUser) {
-
-        }
-    }*/
 }

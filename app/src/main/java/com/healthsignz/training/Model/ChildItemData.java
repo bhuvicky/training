@@ -16,6 +16,13 @@ public class ChildItemData {
         this.time = time;
     }
 
+    public ChildItemData(int image, String name, String message, String time) {
+        this.image = image;
+        this.name = name;
+        this.message = message;
+        this.time = time;
+    }
+
     public int getImage() {
         return image;
     }

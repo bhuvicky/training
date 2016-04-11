@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/network_imageview_network_profile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:scaleType="fitCenter" />
+
+
+    <TextView
+        android:id="@+id/textview_network_name"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <!--<ImageView
+        android:id="@+id/imageview_chat"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_chat_msg"
+        android:visibility="invisible" />-->
+
+    <!--<TextView
+        android:id="@+id/textview_network_distance"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/feed_item_margin"
+        android:layout_weight="0.5"
+        android:textAlignment="textStart"
+        android:visibility="gone" />-->
+
+
+    <CheckBox
+        android:id="@+id/checkbox_network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="5dip"
+        android:gravity="center"
+        />
+
+
+</LinearLayout>
+
+
+

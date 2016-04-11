@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ public class ListViewDemoActivity extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for(String s: UserDetailAdapter.validation)
+                for (String s : UserDetailAdapter.validation)
                     Toast.makeText(getBaseContext(), s, Toast.LENGTH_SHORT).show();
             }
         });

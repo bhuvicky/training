@@ -1,42 +1,38 @@
 package com.healthsignz.training.activity;
 
-import android.app.Fragment;
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.healthsignz.training.Communicator;
 import com.healthsignz.training.R;
 import com.healthsignz.training.adapter.MyViewPagerAdapter;
 import com.healthsignz.training.fragment.OneFragment;
 import com.healthsignz.training.fragment.ThreeFragment;
 import com.healthsignz.training.fragment.TwoFragment;
 
-import static com.healthsignz.training.R.id.textView_Result;
-
-public class SwipeTabDemoActivity extends AppCompatActivity implements Communicator{
+public class SwipeTabDemoActivity extends AppCompatActivity implements OneFragment.TransferOneToTwo{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private TextView mTextViewPlus, mTextViewMinus, mTextViewResult;
     private int count;
     private ListFragment prevFragment;
+    MyViewPagerAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_swipe_tab_demo);
-        getActionBar().setTitle("swipe");
+       // getActionBar().setTitle("swipe");
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        setUpViewPager(viewPager);
+        setupViewPager(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -58,14 +54,30 @@ public class SwipeTabDemoActivity extends AppCompatActivity implements Communica
                 mTextViewResult.setText(String.valueOf(--count));
             }
         });
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
-    public void setUpViewPager(ViewPager viewPager) {
-        MyViewPagerAdapter adapter = new MyViewPagerAdapter(getSupportFragmentManager());
-        prevFragment = OneFragment.getInstance();
-        adapter.addFragment(prevFragment, "Prev");
-        adapter.addFragment(new TwoFragment(), "Present");
-        adapter.addFragment(new ThreeFragment(), "Next");
+    private void setupViewPager(ViewPager viewPager) {
+        adapter = new MyViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new OneFragment(), "ONE");
+        adapter.addFragment(new TwoFragment(), "TWO");
+        adapter.addFragment(new ThreeFragment(), "THREE");
         viewPager.setAdapter(adapter);
     }
 
@@ -84,11 +96,13 @@ public class SwipeTabDemoActivity extends AppCompatActivity implements Communica
         return super.onOptionsItemSelected(item);
     }
 
-
+     public void sendData(String countValue) {
+        OneFragment oneFrag = (OneFragment) adapter.getFragment(viewPager.getCurrentItem());
+        oneFrag.changeData(String.valueOf(count));
+    }
 
     @Override
-    public void sendData(String countValue) {
-        OneFragment prevFragment = (OneFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:"+R.id.viewPager+viewPager.getCurrentItem());
-        prevFragment.changeData(String.valueOf(count));
+    public void sendOneToTwo(String data) {
+
     }
 }
